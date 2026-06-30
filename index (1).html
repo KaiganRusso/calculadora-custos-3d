@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Costly • Calculadora 3D</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="logo-icon">🖨️</span>
+                <h1>3D Costly</h1>
+            </div>
+            <p>Calcule o custo real das suas impressões 3D</p>
+        </header>
+
+        <main>
+            <div class="card">
+                <form id="calcForm">
+                    <div class="input-group">
+                        <label for="filamento">Peso de filamento usado</label>
+                        <div class="input-with-unit">
+                            <input type="number" id="filamento" value="250" step="0.1" required>
+                            <span class="unit">gramas</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="precoFilamento">Preço do filamento</label>
+                        <div class="input-with-unit">
+                            <input type="number" id="precoFilamento" value="120" step="0.01" required>
+                            <span class="unit">R$/kg</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="horas">Tempo de impressão</label>
+                        <div class="input-with-unit">
+                            <input type="number" id="horas" value="8" step="0.1" required>
+                            <span class="unit">horas</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="potencia">Potência da impressora</label>
+                        <div class="input-with-unit">
+                            <input type="number" id="potencia" value="300" step="1" required>
+                            <span class="unit">Watts</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="precoEnergia">Preço da energia</label>
+                        <div class="input-with-unit">
+                            <input type="number" id="precoEnergia" value="0.85" step="0.01" required>
+                            <span class="unit">R$/kWh</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-calcular">
+                        Calcular Custo
+                    </button>
+                </form>
+            </div>
+
+            <div id="resultado" class="resultado hidden">
+                <h2>Resultado da Impressão</h2>
+                
+                <div class="result-grid">
+                    <div class="result-item">
+                        <span class="label">Filamento</span>
+                        <span id="resFilamento" class="value">R$ 0,00</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Energia</span>
+                        <span id="resEnergia" class="value">R$ 0,00</span>
+                    </div>
+                    <div class="result-item total">
+                        <span class="label">Total</span>
+                        <span id="resTotal" class="value total-value">R$ 0,00</span>
+                    </div>
+                </div>
+
+                <div class="custo-hora">
+                    <span>Custo por hora:</span>
+                    <strong id="resPorHora">R$ 0,00</strong>
+                </div>
+
+                <button id="novaCalc" class="btn-nova">Nova Cálculo</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>Feito para makers • <a href="https://github.com/SEU_USUARIO/3d-costly" target="_blank">GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
