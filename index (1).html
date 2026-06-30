@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3D Costly • Calculadora 3D</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -14,12 +14,17 @@
                 <span class="logo-icon">🖨️</span>
                 <h1>3D Costly</h1>
             </div>
-            <p>Calcule o custo real das suas impressões 3D</p>
+            <p>Calcule custos e defina preços inteligentes</p>
         </header>
 
         <main>
-            <div class="card">
+            <div class="card" id="formCard">
                 <form id="calcForm">
+                    <div class="input-group">
+                        <label for="nome">Nome da Impressão</label>
+                        <input type="text" id="nome" placeholder="Ex: Suporte de celular" required>
+                    </div>
+
                     <div class="input-group">
                         <label for="filamento">Peso de filamento usado</label>
                         <div class="input-with-unit">
@@ -61,13 +66,13 @@
                     </div>
 
                     <button type="submit" class="btn-calcular">
-                        Calcular Custo
+                        Calcular e Salvar
                     </button>
                 </form>
             </div>
 
             <div id="resultado" class="resultado hidden">
-                <h2>Resultado da Impressão</h2>
+                <h2 id="nomeResultado"></h2>
                 
                 <div class="result-grid">
                     <div class="result-item">
@@ -79,8 +84,26 @@
                         <span id="resEnergia" class="value">R$ 0,00</span>
                     </div>
                     <div class="result-item total">
-                        <span class="label">Total</span>
+                        <span class="label">Custo Total</span>
                         <span id="resTotal" class="value total-value">R$ 0,00</span>
+                    </div>
+                </div>
+
+                <div class="precificacao">
+                    <h3>Sugestão de Preço de Venda</h3>
+                    <div class="multiplicadores">
+                        <div class="multi-item" id="multi2">
+                            <span class="multi-titulo">2× <small>(Mínimo)</small></span>
+                            <span id="preco2" class="multi-valor">R$ 0,00</span>
+                        </div>
+                        <div class="multi-item destaque" id="multi3">
+                            <span class="multi-titulo">3× <small>(Ideal)</small></span>
+                            <span id="preco3" class="multi-valor">R$ 0,00</span>
+                        </div>
+                        <div class="multi-item" id="multi4">
+                            <span class="multi-titulo">4× <small>(Alto Lucro)</small></span>
+                            <span id="preco4" class="multi-valor">R$ 0,00</span>
+                        </div>
                     </div>
                 </div>
 
@@ -89,12 +112,20 @@
                     <strong id="resPorHora">R$ 0,00</strong>
                 </div>
 
-                <button id="novaCalc" class="btn-nova">Nova Cálculo</button>
+                <div class="botoes-resultado">
+                    <button id="novaCalc" class="btn-nova">Nova Impressão</button>
+                    <button id="editarAtual" class="btn-secundario">Editar</button>
+                </div>
+            </div>
+
+            <div class="historico">
+                <h3>📋 Histórico de Impressões</h3>
+                <div id="listaHistorico" class="lista-historico"></div>
             </div>
         </main>
 
         <footer>
-            <p>Feito para makers • <a href="https://github.com/SEU_USUARIO/3d-costly" target="_blank">GitHub</a></p>
+            <p>Feito para makers • Calculadora 3D Costly</p>
         </footer>
     </div>
 
